@@ -89,3 +89,36 @@ var myChart = new Chart(ctx, {
         },
     }
 });
+
+
+var ctx = document.getElementById('dockerhubPulls');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        datasets: [{
+            label: 'Monthly pulls',
+            data: dockerhubPulls,
+            backgroundColor: 'rgba(25, 25, 255, 0.5)',
+            borderColor: 'rgb(25, 25, 255)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        plugins: {
+            title: {
+                display: true,
+                text: 'Docker Hub official image usage'
+            }
+        },
+        scales: {
+            xAxes: {
+              type: 'time',
+              time: {
+                tooltipFormat: 'MMM yyyy',
+                parser: 'yyyy-MM-dd',
+                unit: 'month'
+              }
+            }
+        },
+    }
+});
